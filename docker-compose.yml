@@ -20,6 +20,11 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+  composer:
+    image: composer:2
+    volumes:
+      - .:/app
+    working_dir: /app
 
 volumes:
   pgdata:
