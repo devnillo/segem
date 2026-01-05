@@ -16,9 +16,15 @@ class UserLogin extends Component
             'email' => 'required|email',
             'password' => 'required|string|min:6',
 
+
+
+
         ]);
 
         if (auth()->attempt($validated)) {
+
+
+            
             $user = auth()->user();
             session()->regenerate();
             if ($user->role === 'admin') {
