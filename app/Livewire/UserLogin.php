@@ -31,13 +31,13 @@ class UserLogin extends Component
                 return $this->redirect('/secretary/dashboard');
             }
             if ($user->role === 'teacher') {
-                return redirect()->intended('/teacher/dashboard');
+                return $this->redirect('/teacher/dashboard');
             }
             if ($user->role === 'student') {
-                return redirect()->intended('/student');
+                return $this->redirect('/student');
             }
             if ($user->role === 'parent') {
-                return redirect()->intended('/parent');
+                return $this->redirect('/parent');
             }
         }
 
