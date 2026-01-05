@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire;
 
 use Livewire\Component;
@@ -16,14 +18,9 @@ class UserLogin extends Component
             'email' => 'required|email',
             'password' => 'required|string|min:6',
 
-
-
-
         ]);
 
         if (auth()->attempt($validated)) {
-
-
 
             $user = auth()->user();
             session()->regenerate();
