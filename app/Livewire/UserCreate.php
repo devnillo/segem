@@ -17,7 +17,7 @@ class UserCreate extends Component
 
     public $password = '';
 
-    public $role = 'admin';
+    public $role = 'secretary';
 
     public $is_active = true;
 
