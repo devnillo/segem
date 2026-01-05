@@ -24,7 +24,7 @@ class UserLogin extends Component
         if (auth()->attempt($validated)) {
 
 
-            
+
             $user = auth()->user();
             session()->regenerate();
             if ($user->role === 'admin') {
