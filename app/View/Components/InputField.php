@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components;
 
 use Closure;
@@ -20,8 +22,7 @@ class InputField extends Component
         public $options = [],
         public $valueOption = '',
         public $textOption = ''
-    )
-    {
+    ) {
         //
     }
 

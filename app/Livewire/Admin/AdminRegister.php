@@ -12,11 +12,14 @@ class AdminRegister extends Component
 {
     #[Validate('required')]
     public $name = '';
+
     #[Validate('email|required|unique:users,email')]
-//    #[Validate('')]
+    //    #[Validate('')]
     public $email = '';
+
     #[Validate('required')]
     public $password = '';
+
     public $is_active = true;
 
     public function register()

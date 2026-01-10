@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use App\Http\Middleware\CheckAdmin;
 use App\Livewire\Admin\AdminDashboard;
-use App\Livewire\Admin\Login;
 use App\Livewire\Admin\AdminRegister;
 use App\Livewire\Admin\Secretary\AdminSecretary;
 use App\Livewire\Admin\Secretary\SecretaryRegister;
@@ -13,7 +12,6 @@ use App\Livewire\Secretary\SecretaryDashboard;
 use App\Livewire\ShowSecretary;
 use App\Livewire\UserLogin;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 route::get('login', UserLogin::class)->name('user.login');
 
@@ -28,7 +26,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('register', AdminRegister::class)->name('admin.register');
     Route::group(['middleware' => [CheckAdmin::class]], function () {
         Route::get('dashboard', AdminDashboard::class)->name('admin.dashboard');
-        Route::group( [ 'prefix' => 'secretary' ], function () {
+        Route::group(['prefix' => 'secretary'], function () {
             Route::get('', AdminSecretary::class)->name('admin.secretary');
             Route::get('register', SecretaryRegister::class)->name('admin.secretary.register');
             Route::get('all', ListSecretaries::class)->name('admin.secretary.all');

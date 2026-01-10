@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -15,9 +17,10 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->check()){
+        if (auth()->check()) {
             return $next($request);
         }
+
         return redirect()->route('user.login');
     }
 }

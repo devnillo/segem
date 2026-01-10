@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire;
 
 use App\Models\Secretary;
@@ -13,6 +15,7 @@ class ListSecretaries extends Component
     {
         $this->secretaries = Secretary::all();
     }
+
     public function render()
     {
         return view('livewire.list-secretaries')->layout('layouts.admin');
