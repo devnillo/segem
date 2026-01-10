@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Admim\Secretary;
 
 use App\Models\Secretary;
@@ -40,13 +42,15 @@ class SecretaryUpdate extends Component
     public $secretary_users = [];
 
     public $secretary = [];
+
     public $states = [];
+
     public $secretaryId;
+
     public function updated($property)
     {
         $this->validateOnly($property);
     }
-
 
     public function mount($secretaryId): void
     {
@@ -74,13 +78,13 @@ class SecretaryUpdate extends Component
     public function rules(): array
     {
         return [
-            'inep_code' => 'required|numeric|unique:secretaries,inep_code,' . $this->secretaryId . ',id',
+            'inep_code' => 'required|numeric|unique:secretaries,inep_code,'.$this->secretaryId.',id',
             'acronym' => 'nullable',
-            'cnpj' => 'nullable|unique:secretaries,cnpj,' . $this->secretaryId . ',id',
+            'cnpj' => 'nullable|unique:secretaries,cnpj,'.$this->secretaryId.',id',
             'state' => 'nullable',
             'secretary_id' => 'required|integer|exists:users,id',
-            'name' => 'required|unique:secretaries,name,' . $this->secretaryId . ',id',
-            'email' => 'required|email|unique:secretaries,email,' . $this->secretaryId . ',id',
+            'name' => 'required|unique:secretaries,name,'.$this->secretaryId.',id',
+            'email' => 'required|email|unique:secretaries,email,'.$this->secretaryId.',id',
 
             'phone' => 'required',
             'street' => 'required',
