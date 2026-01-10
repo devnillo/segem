@@ -6,7 +6,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterSecretaryRequest extends FormRequest
+class SecretaryRegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,13 +23,14 @@ class RegisterSecretaryRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            'inep_code' => 'required|numeric',
+            'inep_code' => 'required|numeric|unique:secretaries,inep_code',
             'acronym' => 'nullable',
-            'cnpj' => 'nullable',
+            'cnpj' => 'nullable|unique:secretaries,cnpj',
             'state' => 'nullable',
             'secretary_id' => 'required|integer|exists:users,id',
-            'name' => 'required',
+            'name' => 'required|unique:secretaries,name',
             'email' => 'required|email|unique:secretaries,email',
             'phone' => 'required',
             'street' => 'required',

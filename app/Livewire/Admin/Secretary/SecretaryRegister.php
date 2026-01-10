@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Secretary;
 
-use App\Http\Requests\RegisterSecretaryRequest;
+use App\Http\Requests\SecretaryRegisterRequest;
 use App\Models\Secretary;
 use App\Models\State;
 use App\Models\User;
@@ -51,7 +51,7 @@ class SecretaryRegister extends Component
 
     protected function rules(): array
     {
-        return (new RegisterSecretaryRequest)->rules();
+        return (new SecretaryRegisterRequest)->rules();
     }
 
     public function mount(): void
