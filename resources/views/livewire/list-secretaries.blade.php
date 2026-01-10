@@ -7,7 +7,7 @@
 
                 <div class="actions space-x-2">
                     <a href="{{ $secretary->id }}" class="bg-primary text-white p-2 rounded">VER</a>
-                    <a href="" class="bg-primary text-white p-2 rounded">ATUALIZAR</a>
+                    <a href="{{route('admin.secretary.update', $secretary->id)}}" class="bg-primary text-white p-2 rounded">ATUALIZAR</a>
                     <a href="" class="bg-red-500 text-white p-2 rounded">EXCLUIR</a>
                 </div>
             </div>
