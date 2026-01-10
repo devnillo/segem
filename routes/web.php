@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Middleware\CheckAdmin;
+use App\Livewire\Admim\Secretary\SecretaryUpdate;
 use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Admin\AdminRegister;
 use App\Livewire\Admin\Secretary\AdminSecretary;
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('register', SecretaryRegister::class)->name('admin.secretary.register');
             Route::get('all', ListSecretaries::class)->name('admin.secretary.all');
             Route::get('{secretaryId}', ShowSecretary::class)->name('admin.secretary.show');
+            Route::get('update/{secretaryId}', SecretaryUpdate::class)->name('admin.secretary.update');
         });
     });
 
