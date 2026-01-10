@@ -16,6 +16,7 @@ class InputField extends Component
     public function __construct(
         public string $label,
         public string $name,
+        public $value = null,
         public ?string $type = 'text',
         public ?string $placeholder = null,
         public bool $hidden = false,
