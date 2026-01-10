@@ -15,7 +15,7 @@
             <x-input-field name="neighborhood" label="Bairro" />
 
             <x-input-field name="city" label="Cidade" />
-            <x-input-field name="state" label="Estado" :options="$states" type="select" value-option="acronym" text-option="name"/>
+            <x-input-field name="state" label="Estado" :options="$states" type="select" value-option="id" text-option="name"/>
             <x-input-field name="zip_code" label="CEP" />
             <x-input-field type="select" :options="$secretary_users" value-option="id" text-option="name" name="secretary_id" label="Secretário Municipal" />
             <x-button type="submit" text="Registar" variant="primary"/>
