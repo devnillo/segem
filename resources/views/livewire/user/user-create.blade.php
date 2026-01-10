@@ -19,25 +19,25 @@
 
         <form wire:submit.prevent="register" class="space-y-6">
             <div wire:model.live="name">
-                <livewire:components.input-area 
-                    label="Nome Completo" 
+                <livewire:components.input-area
+                    label="Nome Completo"
                     name="name"
-                    placeholder="Ex: João da Silva" 
+                    placeholder="Ex: João da Silva"
                 />
                 @error('name')
-                    <div class="mt-2 p-3 bg-red-50 border border-red-200 rounded-md">
+                    <div class="mt-2 p-3 bg-red-50 border border-red-200 rounded-md ">
                         <p class="text-red-700 text-sm font-medium">{{ $message }}</p>
                     </div>
                 @enderror
             </div>
-            
+
             <div wire:model.live="email">
-                <livewire:components.input-area 
-                    label="Email" 
-                    name="email" 
-                    type="email" 
-                    wire:model.live="email" 
-                    placeholder="Ex: joao@example.com" 
+                <livewire:components.input-area
+                    label="Email"
+                    name="email"
+                    type="email"
+                    wire:model.live="email"
+                    placeholder="Ex: joao@example.com"
                 />
                 @error('email')
                     <div class="mt-2 p-3 bg-red-50 border border-red-200 rounded-md">
@@ -47,12 +47,12 @@
             </div>
 
             <div wire:model.live="password">
-                <livewire:components.input-area 
-                    label="Senha" 
-                    name="password" 
-                    type="password" 
-                    wire:model.live="password" 
-                    placeholder="Mínimo 8 caracteres" 
+                <livewire:components.input-area
+                    label="Senha"
+                    name="password"
+                    type="password"
+                    wire:model.live="password"
+                    placeholder="Mínimo 8 caracteres"
                 />
                 @error('password')
                     <div class="mt-2 p-3 bg-red-50 border border-red-200 rounded-md">

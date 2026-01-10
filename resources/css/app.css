@@ -15,3 +15,23 @@
     --color-contrast: #ffffff;
     --color-muted: #f3f8fa;
 }
+
+@utility title-xl {
+    @apply font-bold text-gray-800 text-4xl mb-6;
+}
+
+@utility title-lg {
+    @apply font-bold text-gray-800 text-3xl mb-5;
+}
+
+@utility title-md {
+    @apply font-bold text-gray-800 text-2xl mb-4;
+}
+
+@utility title-sm {
+    @apply font-bold text-gray-800 text-xl mb-3;
+}
+
+@utility sub-title {
+    @apply font-semibold text-gray-800 text-lg mb-3;
+}

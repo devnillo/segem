@@ -8,34 +8,24 @@
             </div>
         @endif
 
-        <div wire:model.live="email">
-            <livewire:components.input-area 
-                label="Email" 
-                name="email" 
-                type="email" 
+        <div>
+            <x-input-field
+                label="Email"
+                name="email"
+                type="email"
                 placeholder="Ex: usuario@exemplo.com"
             />
-            @error('email')
-                <div class="mt-2 p-3 bg-red-50 border border-red-200 rounded-md">
-                    <p class="text-red-700 text-sm font-medium">{{ $message }}</p>
-                </div>
-            @enderror
         </div>
-        <div wire:model.live="password">
-            <livewire:components.input-area 
-                label="Senha" 
-                name="password" 
-                type="password" 
+        <div>
+            <x-input-field
+                label="Senha"
+                name="password"
+                type="password"
                 placeholder="Sua senha"
             />
-            @error('password')
-                <div class="mt-2 p-3 bg-red-50 border border-red-200 rounded-md">
-                    <p class="text-red-700 text-sm font-medium">{{ $message }}</p>
-                </div>
-            @enderror
         </div>
         <div class="flex justify-center mt-6">
-            <livewire:components.button variant="primary" type="submit" text="Entrar" />
+            <x-button variant="primary" type="submit" text="Entrar" />
         </div>
     </form>
 </div>
