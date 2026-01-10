@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('district')->nullable();
             $table->string('neighborhood')->nullable();
             $table->string('city')->nullable();
-            $table->string('state', 2)->nullable();
+            $table->foreignId('state')->nullable()->constrained('states');
             $table->string('zip_code')->nullable();
 
             $table->timestamps();
