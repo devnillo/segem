@@ -19,8 +19,8 @@
             <option value="">Select</option>
 
             @foreach ($options as $value => $text)
-                <option value="{{ $text->$valueOption }}">
-                    {{ $text->$textOption }}
+                <option value="{{ $text->$valueOption ?? $text }}">
+                    {{ $text->$textOption ?? $text }}
                 </option>
             @endforeach
         </select>
