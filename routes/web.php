@@ -8,6 +8,7 @@ use App\Livewire\Admin\AdminDashboard;
 use App\Livewire\Admin\AdminRegister;
 use App\Livewire\Admin\Secretary\AdminSecretary;
 use App\Livewire\Admin\Secretary\SecretaryRegister;
+use App\Livewire\AdminUserRegister;
 use App\Livewire\ListSecretaries;
 use App\Livewire\Secretary\SecretaryDashboard;
 use App\Livewire\ShowSecretary;
@@ -26,6 +27,8 @@ Route::group(['prefix' => 'secretary'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::get('register', AdminRegister::class)->name('admin.register');
     Route::group(['middleware' => [CheckAdmin::class]], function () {
+        Route::get('user/register', AdminUserRegister::class)->name('admin.user.register');
+
         Route::get('dashboard', AdminDashboard::class)->name('admin.dashboard');
         Route::group(['prefix' => 'secretary'], function () {
             Route::get('', AdminSecretary::class)->name('admin.secretary');
