@@ -24,6 +24,9 @@
                         <a wire:navigate href={{ route('admin.secretary') }}>Secretarias</a>
                     </li>
                     <li>
+                        <a wire:navigate href={{ route('admin.users') }}>Usuários</a>
+                    </li>
+                    <li>
                         <a href="">Escolas</a>
                     </li>
                 </ul>

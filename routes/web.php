@@ -32,10 +32,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('dashboard', AdminDashboard::class)->name('admin.dashboard');
         Route::group(['prefix' => 'secretary'], function () {
             Route::get('', AdminSecretary::class)->name('admin.secretary');
+
             Route::get('register', SecretaryRegister::class)->name('admin.secretary.register');
             Route::get('all', ListSecretaries::class)->name('admin.secretary.all');
             Route::get('{secretaryId}', ShowSecretary::class)->name('admin.secretary.show');
             Route::get('update/{secretaryId}', SecretaryUpdate::class)->name('admin.secretary.update');
+
+            Route::group(['prefix' => 'users'], function () {
+                Route::get('', AdminSecretary::class)->name('admin.users');
+            });
         });
     });
 
