@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Helpers;
 
 use Illuminate\Http\JsonResponse;
@@ -7,11 +9,10 @@ use Illuminate\Http\JsonResponse;
 class ApiResponse
 {
     public static function success(
-        mixed  $data = null,
+        mixed $data = null,
         string $message = 'Successo!',
-        int    $status = 200
-    ): JsonResponse
-    {
+        int $status = 200
+    ): JsonResponse {
         return response()->json([
             'success' => true,
             'message' => $message,
@@ -21,10 +22,9 @@ class ApiResponse
 
     public static function error(
         string $message = 'Erro!',
-        int    $status = 400,
-        mixed  $errors = null
-    ): JsonResponse
-    {
+        int $status = 400,
+        mixed $errors = null
+    ): JsonResponse {
         return response()->json([
             'success' => false,
             'message' => $message,
@@ -33,10 +33,9 @@ class ApiResponse
     }
 
     public static function validation(
-        mixed  $errors,
+        mixed $errors,
         string $message = 'Validation error'
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return response()->json([
             'success' => false,
             'message' => $message,
@@ -46,8 +45,7 @@ class ApiResponse
 
     public static function unauthorized(
         string $message = 'Unauthorized'
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return response()->json([
             'success' => false,
             'message' => $message,
@@ -56,8 +54,7 @@ class ApiResponse
 
     public static function notFound(
         string $message = 'Not found'
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return response()->json([
             'success' => false,
             'message' => $message,

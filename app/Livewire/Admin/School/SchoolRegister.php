@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Admin\School;
 
-use App\Http\Requests\SchoolRegisterRequest;
 use App\Http\Services\SchoolService;
 use Livewire\Component;
 
@@ -10,223 +11,393 @@ class SchoolRegister extends Component
 {
     // 1. Identification
     public int $record_type; // Sempre 10
+
     public string $name = '';
+
     public string $inep_code;
 
-// 2. Operating Location
+    // 2. Operating Location
     public int $is_school_building;
+
     public int $has_rooms_in_other_school;
+
     public int $has_shack_or_similar;
+
     public int $is_socio_educational_unit;
+
     public int $is_prison_unit;
+
     public int $is_other_location;
 
-// 3. Occupation and Sharing
+    // 3. Occupation and Sharing
     public ?int $building_occupation_type = null;
+
     public ?int $is_shared_building = null;
+
     public ?string $shared_school_inep_1 = '';
+
     public ?string $shared_school_inep_2 = '';
+
     public ?string $shared_school_inep_3 = '';
+
     public ?string $shared_school_inep_4 = '';
+
     public ?string $shared_school_inep_5 = '';
+
     public ?string $shared_school_inep_6 = '';
 
-// 4. Water Supply
+    // 4. Water Supply
     public int $provides_potable_water;
+
     public int $water_public_network;
+
     public int $water_artesian_well;
+
     public int $water_cistern;
+
     public int $water_river_source;
+
     public int $water_truck;
+
     public int $no_water_supply;
 
-// Energy Source
+    // Energy Source
     public int $energy_public_network;
+
     public int $energy_fossil_generator;
+
     public int $energy_renewable_source;
+
     public int $no_energy_supply;
 
-// 5. Sanitation
+    // 5. Sanitation
     public int $sewer_public_network;
+
     public int $sewer_septic_tank;
+
     public int $sewer_rudimentary_tank;
+
     public int $no_sewer_system;
 
-// 6. Waste Management
+    // 6. Waste Management
     public int $waste_collection_service;
+
     public int $waste_burning;
+
     public int $waste_burying;
+
     public int $waste_licensed_destination;
+
     public int $waste_other_area_disposal;
+
     public ?int $waste_separation = null;
+
     public ?int $waste_reuse = null;
+
     public ?int $waste_recycling = null;
+
     public ?int $no_waste_treatment = null;
 
-// 7. Physical Facilities
+    // 7. Physical Facilities
     public int $has_warehouse;
+
     public int $has_green_area;
+
     public int $has_auditorium;
+
     public int $has_bathroom;
+
     public int $has_pcd_bathroom;
+
     public int $has_childhood_education_bathroom;
+
     public int $has_staff_bathroom;
+
     public int $has_shower_room;
+
     public int $has_library;
+
     public int $has_kitchen;
+
     public int $has_pantry;
+
     public int $has_student_dormitory;
+
     public int $has_teacher_dormitory;
+
     public int $has_science_lab;
+
     public int $has_it_lab;
+
     public int $has_vocational_lab;
+
     public int $has_playground;
+
     public int $has_covered_patio;
+
     public int $has_uncovered_patio;
+
     public int $has_swimming_pool;
+
     public int $has_covered_sports_court;
+
     public int $has_uncovered_sports_court;
+
     public int $has_cafeteria;
+
     public int $has_student_rest_room;
+
     public int $has_arts_studio;
+
     public int $has_music_room;
+
     public int $has_dance_studio;
+
     public int $has_multipurpose_room;
+
     public int $has_open_dirt_field;
+
     public int $has_animal_breeding_area;
+
     public int $has_principals_office;
+
     public int $has_reading_room;
+
     public int $has_teachers_lounge;
+
     public int $has_special_education_resource_room;
+
     public int $has_secretarys_office;
+
     public int $has_vocational_workshop_rooms;
+
     public int $has_recording_studio;
+
     public int $has_agricultural_production_area;
+
     public int $has_none_of_the_facilities;
 
-// 8. Accessibility
+    // 8. Accessibility
     public int $acc_handrails_guardrails;
+
     public int $acc_elevator;
+
     public int $acc_tactile_floors;
+
     public int $acc_wide_doors_80cm;
+
     public int $acc_ramps;
+
     public int $acc_visual_alarm;
+
     public int $acc_audio_alarm;
+
     public int $acc_tactile_signage;
+
     public int $acc_visual_signage;
+
     public int $no_accessibility_resources;
 
-// 9. Classrooms and Equipment
+    // 9. Classrooms and Equipment
     public ?int $qty_classrooms_inside = 0;
+
     public ?int $qty_classrooms_outside = 0;
+
     public ?int $qty_classrooms_air_conditioned = 0;
+
     public ?int $qty_classrooms_pcd_accessible = 0;
+
     public int $has_satellite_dish;
+
     public int $has_computers;
+
     public int $has_photocopier;
+
     public int $has_printer;
+
     public int $has_multifunctional_printer;
+
     public int $has_scanner;
+
     public int $has_none_of_the_equipment;
+
     public ?int $qty_dvd_bluray_players = 0;
+
     public ?int $qty_sound_systems = 0;
+
     public ?int $qty_tvs = 0;
+
     public ?int $qty_digital_whiteboards = 0;
+
     public ?int $qty_multimedia_projectors = 0;
+
     public ?int $qty_desktop_computers_for_students = 0;
+
     public ?int $qty_laptop_computers_for_students = 0;
+
     public ?int $qty_tablets_for_students = 0;
 
-// 10. Internet Access
+    // 10. Internet Access
     public int $internet_admin_use;
+
     public int $internet_learning_use;
+
     public int $internet_student_use;
+
     public int $internet_community_use;
+
     public int $no_internet_access;
+
     public ?int $internet_via_school_devices = null;
+
     public ?int $internet_via_personal_devices = null;
+
     public ?int $has_broadband = null;
+
     public ?int $has_wired_lan = null;
+
     public ?int $has_wireless_lan = null;
+
     public ?int $no_local_network = null;
 
-// 11. Staff Quantities
+    // 11. Staff Quantities
     public int $staff_agronomists = 0;
+
     public int $staff_secretarial_admin_assistants = 0;
+
     public int $staff_general_services_maintenance = 0;
+
     public int $staff_librarians_reading_monitors = 0;
+
     public int $staff_health_emergency_professionals = 0;
+
     public int $staff_shift_coordinators = 0;
+
     public int $staff_speech_therapists = 0;
+
     public int $staff_nutritionists = 0;
+
     public int $staff_psychologists = 0;
+
     public int $staff_cooks_kitchen_assistants = 0;
+
     public int $staff_pedagogical_supervisors = 0;
+
     public int $staff_school_secretary = 0;
+
     public int $staff_security_guards = 0;
+
     public int $staff_it_multimedia_technicians = 0;
+
     public int $staff_vice_principals = 0;
+
     public int $staff_community_counselors_social_workers = 0;
+
     public int $staff_libras_interpreters = 0;
+
     public int $staff_braille_translators_assistants = 0;
+
     public ?int $no_staff_in_listed_functions = null;
 
-// 12. Meals and Materials
+    // 12. Meals and Materials
     public int $provides_school_meals;
+
     public int $has_multimedia_collection;
+
     public int $has_early_childhood_toys;
+
     public int $has_scientific_materials_kit;
+
     public int $has_sound_amplification_equipment;
+
     public int $has_agricultural_production_equipment;
+
     public int $has_musical_instruments;
+
     public int $has_educational_games;
+
     public int $has_artistic_cultural_materials;
+
     public int $has_vocational_education_materials;
+
     public int $has_sports_recreation_materials;
+
     public int $has_deaf_bilingual_education_materials;
+
     public int $has_indigenous_education_materials;
+
     public int $has_ethnic_racial_relations_materials;
+
     public int $has_rural_education_materials;
+
     public int $has_quilombola_education_materials;
+
     public int $has_special_education_materials;
+
     public int $has_none_of_the_pedagogical_materials;
 
-// 13. Indigenous and Languages
+    // 13. Indigenous and Languages
     public int $is_indigenous_school;
+
     public ?int $teaching_in_indigenous_language = null;
+
     public ?int $teaching_in_portuguese = null;
+
     public ?string $indigenous_language_code_1 = '';
+
     public ?string $indigenous_language_code_2 = '';
+
     public ?string $indigenous_language_code_3 = '';
 
-// 14. Selection and Quotas
+    // 14. Selection and Quotas
     public ?int $has_entrance_exam = null;
+
     public ?int $quota_ppi = null;
+
     public ?int $quota_income = null;
+
     public ?int $quota_public_school = null;
+
     public ?int $quota_pcd = null;
+
     public ?int $quota_other_groups = null;
+
     public ?int $no_quotas = null;
 
-// 15. Management
+    // 15. Management
     public ?int $has_website_or_social_media = null;
+
     public ?int $shares_space_with_community = null;
+
     public ?int $uses_neighborhood_facilities = null;
+
     public int $has_parents_association;
+
     public int $has_parents_teachers_association;
+
     public int $has_school_council;
+
     public int $has_student_union;
+
     public int $has_other_collegial_bodies;
+
     public int $no_collegial_bodies;
 
-// 16. PPP and Environment
+    // 16. PPP and Environment
     public ?int $ppp_updated_last_12_months = null;
+
     public int $has_environmental_education;
+
     public ?int $env_as_curriculum_content = null;
+
     public ?int $env_as_specific_subject = null;
+
     public ?int $env_as_structural_axis = null;
+
     public ?int $env_via_events = null;
+
     public ?int $env_via_transdisciplinary_projects = null;
+
     public ?int $env_none_of_the_options = null;
 
     protected function rules(): array
@@ -460,6 +631,7 @@ class SchoolRegister extends Component
         $this->validate();
         $schoolService->register();
     }
+
     public function render()
     {
         return view('livewire.admin.school.school-register');

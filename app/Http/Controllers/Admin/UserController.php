@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRegisterRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Spatie\RouteAttributes\Attributes\Get;
 use Spatie\RouteAttributes\Attributes\Post;
 
 class UserController extends Controller
@@ -20,6 +20,4 @@ class UserController extends Controller
 
         return response()->json($user, 200);
     }
-
-
 }
