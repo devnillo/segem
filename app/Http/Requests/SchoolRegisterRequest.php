@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -11,10 +13,7 @@ class SchoolRegisterRequest extends FormRequest
         return true;
     }
 
-    public function rules()
-    {
-
-    }
+    public function rules() {}
 
     public function messages(): array
     {

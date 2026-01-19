@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Helpers\ApiResponse;
@@ -21,7 +23,7 @@ class UserController extends Controller
 
         $token = auth()->attempt($credentials);
 
-        if (!$token) {
+        if (! $token) {
             return ApiResponse::error('Credenciais inválidas', 401);
         }
 
@@ -40,7 +42,6 @@ class UserController extends Controller
         $user->assignRole($validated['role']);
 
         return ApiResponse::success(['user' => $user], 'Cadastro realizado com sucesso');
-
 
     }
 }

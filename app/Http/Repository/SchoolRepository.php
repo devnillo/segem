@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Repository;
 
 use App\Models\School;
 
 class SchoolRepository
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function register(array $data): School
     {
