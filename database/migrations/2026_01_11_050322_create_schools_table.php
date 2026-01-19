@@ -12,10 +12,12 @@ class CreateSchoolsTable extends Migration
     {
     Schema::create('schools', function (Blueprint $table) {
         $table->id();
-
+        $table->foreignId('department_id')->constrained('departments');
         // 1. Identification (Fields 1-2)
         $table->string('record_type', 2)->default('10'); // Field 1: Must be '10'
         $table->char('inep_code', 8)->unique(); // Field 2: Fixed length numeric
+
+        $table->string('name')->after('inep_code');
 
         // 2. Operating Location (Fields 3-8)
         $table->unsignedTinyInteger('is_school_building');

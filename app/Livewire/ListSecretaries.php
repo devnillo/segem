@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use App\Models\Secretary;
+use App\Models\Department;
 use Livewire\Component;
 
 class ListSecretaries extends Component
@@ -13,7 +13,7 @@ class ListSecretaries extends Component
 
     public function mount(): void
     {
-        $this->secretaries = Secretary::all();
+        $this->secretaries = Department::all();
     }
 
     public function render()

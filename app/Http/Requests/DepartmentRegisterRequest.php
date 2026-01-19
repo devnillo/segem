@@ -6,7 +6,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SecretaryRegisterRequest extends FormRequest
+class DepartmentRegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,13 @@ class SecretaryRegisterRequest extends FormRequest
     {
 
         return [
-            'inep_code' => 'required|numeric|unique:secretaries,inep_code',
+            'inep_code' => 'required|numeric|unique:departments,inep_code',
             'acronym' => 'nullable',
-            'cnpj' => 'nullable|unique:secretaries,cnpj',
+            'cnpj' => 'nullable|unique:departments,cnpj',
             'state' => 'nullable',
             'secretary_id' => 'required|integer|exists:users,id',
-            'name' => 'required|unique:secretaries,name',
-            'email' => 'required|email|unique:secretaries,email',
+            'name' => 'required|unique:departments,name',
+            'email' => 'required|email|unique:departments,email',
             'phone' => 'required',
             'street' => 'required',
             'number' => 'required',

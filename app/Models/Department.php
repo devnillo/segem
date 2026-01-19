@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Secretary extends Model
+class Department extends Model
 {
     protected $fillable = [
         'inep_code',

@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('secretaries', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('inep_code')->unique()->nullable();
             $table->string('name');
             $table->string('acronym')->nullable();
             $table->string('cnpj')->unique()->nullable();
+            $table->foreignId('secretary_id')->constrained('users');
 
             $table->string('email')->unique()->nullable();
             $table->string('phone')->nullable();
@@ -40,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('secretaries');
+        Schema::dropIfExists('departments');
     }
 };

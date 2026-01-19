@@ -13,7 +13,6 @@
     <body>
         <header class="bg-primary text-white flex justify-between p-5 mb-2">
             <div class="logo">
-                <h2>SEGEM</h2>
             </div>
             <nav>
                 <ul class="flex gap-4">

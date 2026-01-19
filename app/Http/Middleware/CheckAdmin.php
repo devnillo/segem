@@ -17,10 +17,14 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check()) {
-            return $next($request);
+        if (! auth()->check()) {
+            abort(401);
         }
 
-        return redirect()->route('user.login');
+        if (! auth()->user()->hasRole('admin')) {
+            abort(403, 'Acesso negado, você não é administrador.');
+        }
+
+        return $next($request);
     }
 }

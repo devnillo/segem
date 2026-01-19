@@ -15,7 +15,21 @@ return [
      * Optionally, you can specify group configuration by using key/values
      */
     'directories' => [
-        app_path('Http/Controllers'),
+        app_path('Http/Controllers')  => [
+            'prefix' => 'api',
+            'middleware' => ['api'],
+            'patterns' => ['*Controller.php'],
+        ],
+        app_path('Http/Controllers/Admin') => [
+            'prefix' => 'api/admin',
+            'middleware' => ['api', 'check.admin'],
+            'patterns' => ['*Controller.php'],
+        ],
+        app_path('Http/Controllers/Admin/Secretary') => [
+            'prefix' => 'api/admin/secretary',
+            'middleware' => ['api', 'check.admin'],
+            'patterns' => ['*Controller.php'],
+        ]
         /*
         app_path('Http/Controllers/Api') => [
            'prefix' => 'api',

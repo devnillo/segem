@@ -9,6 +9,7 @@ class School extends Model
     protected $fillable = [
         'record_type',
         'inep_code',
+        'name',
 
         // 2. Operating Location
         'is_school_building',

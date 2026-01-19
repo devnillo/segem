@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Secretary;
 
-use App\Http\Requests\SecretaryRegisterRequest;
-use App\Models\Secretary;
+use App\Http\Requests\DepartmentRegisterRequest;
+use App\Models\Department;
 use App\Models\State;
 use App\Models\User;
 use Livewire\Component;
@@ -51,7 +51,7 @@ class SecretaryRegister extends Component
 
     protected function rules(): array
     {
-        return (new SecretaryRegisterRequest)->rules();
+        return (new DepartmentRegisterRequest)->rules();
     }
 
     public function mount(): void
@@ -63,7 +63,7 @@ class SecretaryRegister extends Component
     public function store()
     {
         $validated = $this->validate();
-        Secretary::create($validated);
+        Department::create($validated);
 
         session()->flash('message', 'Secretaria criada com sucesso!.');
 

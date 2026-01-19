@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use App\Models\Secretary;
+use App\Models\Department;
 use Livewire\Component;
 
 class ShowSecretary extends Component
@@ -16,7 +16,7 @@ class ShowSecretary extends Component
     public function mount($secretaryId): void
     {
         $this->secretaryId = $secretaryId;
-        $this->secretary = Secretary::findOrFail($secretaryId);
+        $this->secretary = Department::findOrFail($secretaryId);
     }
 
     public function render()

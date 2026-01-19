@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Secretary;
 
-use App\Models\Secretary;
+use App\Models\Department;
 use Livewire\Component;
 
 class AdminSecretary extends Component
@@ -13,7 +13,7 @@ class AdminSecretary extends Component
 
     public function mount(): void
     {
-        $this->secrearies = Secretary::all();
+        $this->secrearies = Department::all();
     }
 
     public function render()
